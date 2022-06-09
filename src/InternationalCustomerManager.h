@@ -2,30 +2,30 @@
 // Created by Maikol Guzman Alan on 6/9/22.
 //
 
-#ifndef DP_STRUCTURAL_BRIDGE_CUSTOMERDATA_H
-#define DP_STRUCTURAL_BRIDGE_CUSTOMERDATA_H
+#ifndef DP_STRUCTURAL_BRIDGE_INTERNATIONALCUSTOMERMANAGER_H
+#define DP_STRUCTURAL_BRIDGE_INTERNATIONALCUSTOMERMANAGER_H
 
 #include <ostream>
 #include <iostream>
 #include <vector>
-#include "IDataObject.h"
+#include "IManager.h"
 
 using namespace std;
 
 /*
- * Concrete Implementors
+ * Concrete Implementors for international customers
  * implement the Implementor interface and define concrete implementations
  */
-class CustomerData : public IDataObject{
+class InternationalCustomerManager : public IManager{
 private:
     vector<string> customers;
     int current = 0;
-    string city;
+    string country;
 public:
 
-    CustomerData(const vector<string> &customers, const string &city);
+    InternationalCustomerManager(const vector<string> &customers, const string &city);
 
-    virtual ~CustomerData();
+    ~InternationalCustomerManager() override;
 
     void nextRecord() override;
 
@@ -42,4 +42,4 @@ public:
 };
 
 
-#endif //DP_STRUCTURAL_BRIDGE_CUSTOMERDATA_H
+#endif //DP_STRUCTURAL_BRIDGE_INTERNATIONALCUSTOMERMANAGER_H

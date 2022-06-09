@@ -9,23 +9,19 @@
 using namespace std;
 
 /*
- * Abstraction
- * defines the abstraction's interface
+ * Implementor
+ * defines the interface for implementation classes
  */
 class IManager {
 public:
-    virtual void next() = 0;
+    virtual void nextRecord() = 0;
+    virtual void previousRecord() = 0;
+    virtual void newRecord(string customer) = 0;
+    virtual void deleteRecord(string customer) = 0;
+    virtual void displayRecord() = 0;
+    virtual void displayAllRecord() = 0;
 
-    virtual void previous() = 0;
+    virtual ~IManager() = default;
 
-    virtual void newObj(string customer) = 0;
-
-    virtual void deleteObj(string customer) = 0;
-
-    virtual void display() = 0;
-
-    virtual void displayAll() = 0;
-
-    virtual ~IManager() {}
 };
 #endif //DP_STRUCTURAL_BRIDGE_IMANAGER_H

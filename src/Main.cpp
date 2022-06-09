@@ -4,36 +4,46 @@
 #include <ostream>
 #include <iostream>
 #include <vector>
-#include "IDataObject.h"
-#include "CustomerData.h"
 #include "IManager.h"
-#include "CustomerManager.h"
+#include "InternationalCustomerManager.h"
+#include "ICustomer.h"
+#include "Customer.h"
+#include "LocalCustomerManager.h"
 
 using namespace std;
 
 int main() {
     cout << "Welcome to the UNA! (VIRTUAL)" << endl;
-    cout << "Structural pattern - Bridge" << endl;
+    cout << "Structural pattern - Bridge" << endl << endl;
 
-    vector<string> initDataList;
+    vector<string> dataIntCustomer;
+    vector<string> dataLocalCustomers;
 
-    initDataList.push_back("Mike Guzman");
-    initDataList.push_back("Sebastián Gutierrez");
-    initDataList.push_back("Emma Rojas");
-    initDataList.push_back("Pedro Rodríguez");
 
-    IDataObject* customerData = new CustomerData(initDataList, "Costa Rica");
+    dataIntCustomer.emplace_back("Mike Guzman");
+    dataIntCustomer.emplace_back("Sebastián Gutierrez");
+    dataLocalCustomers.emplace_back("Emma Rojas");
+    dataLocalCustomers.emplace_back("Pedro Rodríguez");
 
-    IManager* manager = new CustomerManager(customerData, "Costa Rica");
+    ICustomer* intCustomer = new Customer(new InternationalCustomerManager(dataIntCustomer, "USA"));
 
-    manager->display();
-    manager->next();
-    manager->display();
-    manager->next();
-    manager->display();
-    manager->newObj("Mark Zuckerberg ");
-    manager->displayAll();
-    manager->deleteObj("Mike Guzman");
-    manager->displayAll();
+    intCustomer->display();
+
+    intCustomer->next();
+    intCustomer->display();
+
+    intCustomer->newCustomer("Mark Zuckerberg");
+    intCustomer->displayAll();
+
+    intCustomer->next();
+    intCustomer->previous();
+    intCustomer->display();
+
+    intCustomer->deleteCustomer("Mike Guzman");
+    intCustomer->displayAll();
+
+    ICustomer* localCustomer = new Customer(new LocalCustomerManager(dataLocalCustomers, "Heredia"));
+    localCustomer->display();
+
     return 0;
 }
