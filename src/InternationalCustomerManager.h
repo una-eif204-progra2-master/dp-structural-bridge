@@ -23,7 +23,7 @@ private:
     string country;
 public:
 
-    InternationalCustomerManager(const vector<string> &customers, const string &city);
+    InternationalCustomerManager(const vector<string> &customers, const string &country);
 
     ~InternationalCustomerManager() override;
 
