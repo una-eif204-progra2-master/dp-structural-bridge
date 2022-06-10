@@ -26,7 +26,6 @@ int main() {
     dataLocalCustomers.emplace_back("Pedro Rodríguez");
 
     ICustomer* intCustomer = new Customer(new InternationalCustomerManager(dataIntCustomer, "USA"));
-
     intCustomer->display();
 
     intCustomer->next();
@@ -43,6 +42,9 @@ int main() {
     intCustomer->displayAll();
 
     ICustomer* localCustomer = new Customer(new LocalCustomerManager(dataLocalCustomers, "Heredia"));
+    localCustomer->display();
+
+    localCustomer->next();
     localCustomer->display();
 
     return 0;

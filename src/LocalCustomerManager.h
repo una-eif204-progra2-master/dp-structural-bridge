@@ -2,8 +2,8 @@
 // Created by Maikol Guzman Alan on 6/9/22.
 //
 
-#ifndef DP_STRUCTURAL_BRIDGE_COMPANYBMANAGER_H
-#define DP_STRUCTURAL_BRIDGE_COMPANYBMANAGER_H
+#ifndef DP_STRUCTURAL_BRIDGE_LOCALCUSTOMERMANAGER_H
+#define DP_STRUCTURAL_BRIDGE_LOCALCUSTOMERMANAGER_H
 
 #include <ostream>
 #include <iostream>
@@ -23,9 +23,10 @@ private:
     string city;
 public:
 
-    LocalCustomerManager(const vector<string> &customers, const string &city);
+    LocalCustomerManager(const vector<string> &customers, string city);
 
     ~LocalCustomerManager() override;
+
 
     void nextRecord() override;
 
@@ -42,4 +43,4 @@ public:
 };
 
 
-#endif //DP_STRUCTURAL_BRIDGE_COMPANYBMANAGER_H
+#endif //DP_STRUCTURAL_BRIDGE_LOCALCUSTOMERMANAGER_H

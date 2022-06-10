@@ -4,9 +4,10 @@
 
 #include "LocalCustomerManager.h"
 
-LocalCustomerManager::LocalCustomerManager(const vector<string> &customers, const string &city) {
-    this->city = city;
-}
+#include <utility>
+
+LocalCustomerManager::LocalCustomerManager(const vector<string> &customers, string city) : customers(customers),
+                                                                                                  city(std::move(city)) {}
 
 LocalCustomerManager::~LocalCustomerManager() = default;
 
@@ -46,3 +47,4 @@ void LocalCustomerManager::displayAllRecord() {
     }
     cout << endl;
 }
+
