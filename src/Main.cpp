@@ -4,7 +4,6 @@
 #include <ostream>
 #include <iostream>
 #include <vector>
-#include "IManager.h"
 #include "InternationalCustomerManager.h"
 #include "ICustomer.h"
 #include "Customer.h"
@@ -25,7 +24,7 @@ int main() {
     dataLocalCustomers.emplace_back("Emma Rojas");
     dataLocalCustomers.emplace_back("Pedro Rodríguez");
 
-    ICustomer* intCustomer = new Customer(new InternationalCustomerManager(dataIntCustomer, "USA"));
+    ICustomer *intCustomer = new Customer(new InternationalCustomerManager(dataIntCustomer, "USA"));
     intCustomer->display();
 
     intCustomer->next();
@@ -41,7 +40,7 @@ int main() {
     intCustomer->deleteCustomer("Mike Guzman");
     intCustomer->displayAll();
 
-    ICustomer* localCustomer = new Customer(new LocalCustomerManager(dataLocalCustomers, "Heredia"));
+    ICustomer *localCustomer = new Customer(new LocalCustomerManager(dataLocalCustomers, "Heredia"));
     localCustomer->display();
 
     localCustomer->next();
